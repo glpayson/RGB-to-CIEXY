@@ -1,14 +1,7 @@
 # rgb-cie-converter
 
-A Clojure library designed to ... well, that part is up to you.
+This is a Clojure version of code from [this](http://stackoverflow.com/a/22649803) Stackoverflow answer. 
 
-## Usage
+Converts rgb values to the CIE 1931 color space XY coordinates that Philips Hue uses.
 
-FIXME
 
-## License
-
-Copyright © 2015 FIXME
-
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
