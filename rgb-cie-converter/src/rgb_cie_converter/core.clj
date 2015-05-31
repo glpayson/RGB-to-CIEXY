@@ -11,29 +11,27 @@
       2.4)
     (/ c 12.92)))
 
-(defn- to-xyz [rgb]
-  (let [[r g b] rgb]
-    [(+
-       (* r 0.649926)
-       (* g 0.103455)
-       (* b 0.197109))
-     (+
-       (* r 0.234327)
-       (* g 0.743075)
-       (* b 0.022598))
-     (+
-       (* r 0.000000)
-       (* g 0.053077)
-       (* b 1.035763))]))
+(defn to-xyz [[r g b]]
+  [(+
+     (* r 0.649926)
+     (* g 0.103455)
+     (* b 0.197109))
+   (+
+     (* r 0.234327)
+     (* g 0.743075)
+     (* b 0.022598))
+   (+
+     (* r 0.000000)
+     (* g 0.053077)
+     (* b 1.035763))])
 
-(defn- to-xy [xyz]
-  (let [[x y z] xyz]
-    (if (= (+ x y z) 0.0)
-      [1 1]
-      [(/ x (+ x y z))
-       (/ y (+ x y z))])))
+(defn- to-xy [[x y z]]
+  (if (= (+ x y z) 0.0)
+    [1 1]
+    [(/ x (+ x y z))
+     (/ y (+ x y z))]))
 
-(defn rgb-to-cie-space [r g b]
+(defn rgb-to-cie [r g b]
   (->>
     (map normalize-color [r g b])
     (map enhance-color)
